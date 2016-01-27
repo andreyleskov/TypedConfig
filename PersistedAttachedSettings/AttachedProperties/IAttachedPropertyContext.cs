@@ -3,10 +3,10 @@ using System.Data.Entity;
 
 namespace PersistedAttachedProperties.AttachedProperties
 {
-    public interface IAttachedPropertyContext : IDisposable
+    public interface IAttachedPropertyContext<T> : IDisposable
     {
         IDbSet<AttachedProperty> Properties { get; }
-        IDbSet<AttachedPropertyValue> PropertyValues { get; }
+        IDbSet<AttachedPropertyValue<T>> PropertyValues { get; }
         void Save();
     }
 }

@@ -7,11 +7,13 @@ using TypedConfig.TypedAdapter;
 
 namespace PersistedAttachedProperties.AttachedProperties
 {
-    public class DbPersistedPropertyValueProvider<T> : IPropertyValueProvider where T : class
+    public class DbPersistedPropertyValueProvider<T, TKey> : IPropertyValueProvider 
+        where T : class
+        where TKey : struct, IComparable<TKey>
     {
-        private readonly Func<IAttachedPropertyContext> _contextCreator;
+        private readonly Func<IAttachedPropertyContext<TKey>> _contextCreator;
         private readonly T _defaultValues;
-        private readonly int _ownerEntityId;
+        private readonly TKey _ownerEntityId;
         private readonly Func<object, string> _serializer;
         private readonly TypedPropertyDeserializer<T> _typedPropertyDeserializer;
 
@@ -21,8 +23,8 @@ namespace PersistedAttachedProperties.AttachedProperties
         private IDictionary<int, object> _loadedProperties = new Dictionary<int, object>();
         private IDictionary<string, string> _loadedSerializedProperties = new Dictionary<string, string>();
 
-        public DbPersistedPropertyValueProvider(int ownerEntityId,
-            Func<IAttachedPropertyContext> contextCreator,
+        public DbPersistedPropertyValueProvider(TKey ownerEntityId,
+            Func<IAttachedPropertyContext<TKey>> contextCreator,
             Func<object, string> serializer,
             T defaultValues,
             ITypeDeserializer typeDeserializer)
@@ -65,9 +67,9 @@ namespace PersistedAttachedProperties.AttachedProperties
             }
         }
 
-        private void InitSerializedValues(IAttachedPropertyContext context)
+        private void InitSerializedValues(IAttachedPropertyContext<TKey> context)
         {
-            _loadedSerializedProperties = context.PropertyValues.Where(p => p.EntityId == _ownerEntityId)
+            _loadedSerializedProperties = context.PropertyValues.Where(p => p.EntityId.CompareTo(_ownerEntityId) == 0)
                 .ToDictionary(p => _knownProperties.Values.Single(v => v.Id == p.PropertyId).Info.Name,
                     p => p.Value);
 
@@ -76,13 +78,14 @@ namespace PersistedAttachedProperties.AttachedProperties
             {
                 var propInfo = _knownProperties[prop.Name];
 
-                var attachedPropertyValue = new AttachedPropertyValue
+                var attachedPropertyValue = new AttachedPropertyValue<TKey>
                 {
                     EntityId = _ownerEntityId,
                     PropertyId = propInfo.Id,
                     Value = _serializer.Invoke(prop.GetValue(_defaultValues))
                 };
-                var p = context.PropertyValues.Add(attachedPropertyValue);
+                
+                context.PropertyValues.Add(attachedPropertyValue);
                 context.Save();
 
                 _loadedSerializedProperties[prop.Name] = attachedPropertyValue.Value;
@@ -93,19 +96,22 @@ namespace PersistedAttachedProperties.AttachedProperties
         {
             using (var context = _contextCreator.Invoke())
             {
-                _knownProperties = context.Properties.Where(p => p.EntityType == typeof (T).FullName)
+                var type = typeof (T);
+                var typeFullName = type.FullName;
+
+                _knownProperties = context.Properties.Where(p => p.EntityType == typeFullName)
                     .ToDictionary(p => p.Name, p => new PersistedPropertyInfo
                     {
                         Id = p.Id,
-                        Info = typeof (T).GetProperty(p.Name)
+                        Info = type.GetProperty(p.Name)
                     });
 
-                foreach (var prop in typeof (T).GetProperties(BindingFlags.Instance | BindingFlags.Public)
+                foreach (var prop in type.GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .Where(prop => !_knownProperties.ContainsKey(prop.Name)))
                 {
                     var p = context.Properties.Add(new AttachedProperty
                     {
-                        EntityType = typeof (T).FullName,
+                        EntityType = typeFullName,
                         Name = prop.Name,
                         Type = prop.PropertyType.FullName
                     });
@@ -115,7 +121,7 @@ namespace PersistedAttachedProperties.AttachedProperties
                     _knownProperties[prop.Name] = new PersistedPropertyInfo
                     {
                         Id = p.Id,
-                        Info = typeof (T).GetProperty(p.Name)
+                        Info = prop
                     };
                 }
             }

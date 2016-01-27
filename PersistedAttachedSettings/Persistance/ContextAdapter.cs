@@ -3,7 +3,7 @@ using PersistedAttachedProperties.AttachedProperties;
 
 namespace PersistedAttachedProperties.Persistance
 {
-    public class ContextAdapter : IAttachedPropertyContext
+    public class ContextAdapter : IAttachedPropertyContext<int>
     {
         private readonly DbContext _context;
 
@@ -21,10 +21,13 @@ namespace PersistedAttachedProperties.Persistance
         {
             get { return _context.Set<AttachedProperty>(); }
         }
-
-        public IDbSet<AttachedPropertyValue> PropertyValues
+        public IDbSet<AttachedPropertyValue<int>> PropertyValues
         {
-            get { return _context.Set<AttachedPropertyValue>(); }
+            get { return GetPropertyValues<int>(); }
+        }
+        private IDbSet<AttachedPropertyValue<T>> GetPropertyValues<T>()
+        {
+            return _context.Set<AttachedPropertyValue<T>>();
         }
 
         public void Save()
