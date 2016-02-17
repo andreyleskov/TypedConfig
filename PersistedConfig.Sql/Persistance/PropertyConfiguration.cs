@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using PersistedAttachedProperties.AttachedProperties;
+using PersistedAttachedProperties;
 
-namespace PersistedAttachedProperties.Persistance
+namespace PersistedConfig.Sql.Persistance
 {
     public class PropertyConfiguration : EntityTypeConfiguration<AttachedProperty>
     {

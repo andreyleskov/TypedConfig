@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using Domain;
 using NUnit.Framework;
-using PersistedAttachedProperties.Persistance;
+using PersistedAttachedPropertiesConcrete.Persistance;
 
 namespace TypedConfig.Tests
 {
@@ -18,7 +18,7 @@ namespace TypedConfig.Tests
                 var firstName = Config.FirstName;
                 Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
                     p.Type == typeof (string).FullName &&
-                    p.EntityType == typeof (IExampleTypedConfig).FullName &&
+                    p.EntityType == typeof (IExternalConfig_For_VK).FullName &&
                     p.Name == "FirstName"
                     ));
             }
@@ -32,7 +32,7 @@ namespace TypedConfig.Tests
                 var mail = Config.CustomerMail;
                 Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
                     p.Type == typeof (MailAddress).FullName &&
-                    p.EntityType == typeof (IExampleTypedConfig).FullName &&
+                    p.EntityType == typeof (IExternalConfig_For_VK).FullName &&
                     p.Name == "CustomerMail"
                     ));
             }
@@ -46,7 +46,7 @@ namespace TypedConfig.Tests
                 var firstName = Config.FirstName;
                 Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
                     p.Type == typeof (string).FullName &&
-                    p.EntityType == typeof (IExampleTypedConfig).FullName &&
+                    p.EntityType == typeof (IExternalConfig_For_VK).FullName &&
                     p.Name == "FirstName"
                     ));
             }
@@ -60,7 +60,7 @@ namespace TypedConfig.Tests
                 var mail = Config.CustomerMail;
                 Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
                     p.Type == typeof (MailAddress).FullName &&
-                    p.EntityType == typeof (IExampleTypedConfig).FullName &&
+                    p.EntityType == typeof (IExternalConfig_For_VK).FullName &&
                     p.Name == "CustomerMail"
                     ));
             }

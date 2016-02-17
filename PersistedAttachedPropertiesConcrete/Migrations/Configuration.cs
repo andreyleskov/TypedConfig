@@ -1,7 +1,7 @@
 using System.Data.Entity.Migrations;
-using PersistedAttachedProperties.Persistance;
+using PersistedAttachedPropertiesConcrete.Persistance;
 
-namespace PersistedAttachedProperties.Migrations
+namespace PersistedAttachedPropertiesConcrete.Migrations
 {
     internal sealed class Configuration : DbMigrationsConfiguration<PropertyContext>
     {

@@ -1,4 +1,4 @@
-﻿namespace PersistedAttachedProperties.AttachedProperties
+﻿namespace PersistedAttachedProperties
 {
     public class AttachedPropertyValue<T>
     {

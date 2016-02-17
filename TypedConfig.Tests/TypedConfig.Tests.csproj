@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttachedSettings_Persisting_Tests.cs" />
+    <Compile Include="Get_Different_External_Settings_for_domain_object.cs" />
     <Compile Include="TypedAdapter_WhenFakesType_ShouldProvideValues.cs" />
     <Compile Include="AttachedSettings_WhenLoadedFromDB_ShouldUsePersistedValues.cs" />
     <Compile Include="AttachedSettings_WhenLoadedFromEmptyDB_ShouldUseDefautlsAndPersistIt.cs" />
@@ -146,9 +147,13 @@
       <Project>{6afc0548-671b-4b7c-9120-e3eb8e84e563}</Project>
       <Name>PersistedAttachedPropertiesConcrete</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistedAttachedSettings\PersistedAttachedProperties.csproj">
+    <ProjectReference Include="..\PersistedAttachedSettings\EntityAttachedConfig.csproj">
       <Project>{EF78303C-10FA-46D7-BDFB-77CB2677DC28}</Project>
-      <Name>PersistedAttachedProperties</Name>
+      <Name>EntityAttachedConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersistedConfig.Sql\EntityAttachedConfig.Sql.csproj">
+      <Project>{03ec6187-8a53-4225-9f63-a5a7c94d12e2}</Project>
+      <Name>EntityAttachedConfig.Sql</Name>
     </ProjectReference>
     <ProjectReference Include="..\TypedConfig\TypedConfig.csproj">
       <Project>{51EA528A-997A-48A6-939C-CEF68AAF792F}</Project>

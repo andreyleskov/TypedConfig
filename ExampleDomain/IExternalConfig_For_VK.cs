@@ -2,7 +2,7 @@ using System.Net.Mail;
 
 namespace Domain
 {
-    public interface IExampleTypedConfig
+    public interface IExternalConfig_For_VK
     {
         string FirstName { get; }
         string LastName { get; }
@@ -10,6 +10,6 @@ namespace Domain
         decimal MounthlyFee { get; }
         decimal Balance { get; }
         MailAddress CustomerMail { get; }
-        SubscriptionType Subscription { get; }
+        SubscriptionType Subscription { get;}
     }
 }

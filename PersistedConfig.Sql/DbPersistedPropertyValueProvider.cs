@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using PersistedAttachedProperties;
+using PersistedConfig.Sql.Persistance;
 using TypedConfig.Deserialization;
 using TypedConfig.TypedAdapter;
 
-namespace PersistedAttachedProperties.AttachedProperties
+namespace PersistedConfig.Sql
 {
     public class DbPersistedPropertyValueProvider<T, TKey> : IPropertyValueProvider 
         where T : class

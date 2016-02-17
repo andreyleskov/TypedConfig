@@ -18,7 +18,7 @@ namespace TypedConfig.Deserialization
         }
 
         public TypedPropertyDeserializer(Func<string, string> serializedPropertyProvider,
-            ITypeDeserializer typeDeserializer)
+                                         ITypeDeserializer typeDeserializer)
         {
             _typeDeserializer = typeDeserializer;
             _serializedPropertyProvider = serializedPropertyProvider;

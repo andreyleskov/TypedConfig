@@ -1,16 +1,16 @@
 using Domain;
 using PerformanceSmokeTest;
-using PersistedAttachedProperties.AttachedProperties;
-using PersistedAttachedProperties.Persistance;
+using PersistedAttachedPropertiesConcrete.Persistance;
+using PersistedConfig.Sql;
 using Ploeh.AutoFixture;
 using SpecsFor;
 
 namespace TypedConfig.Tests
 {
-    public class AttachedSettings_Persisting_Tests : SpecsFor<AttachedSettingsFactory<IExampleTypedConfig, int>>
+    public class AttachedSettings_Persisting_Tests : SpecsFor<AttachedConfigFactory<IExternalConfig_For_VK, int>>
     {
         protected int EntityId;
-        protected IExampleTypedConfig Config;
+        protected IExternalConfig_For_VK Config;
         protected DefaultExampleConfig DefaultExampleConfig;
 
         protected override void Given()

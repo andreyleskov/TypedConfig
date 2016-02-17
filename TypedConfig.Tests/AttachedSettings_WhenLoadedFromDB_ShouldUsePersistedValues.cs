@@ -2,8 +2,8 @@ using System.Net.Mail;
 using System.Reflection;
 using Domain;
 using NUnit.Framework;
-using PersistedAttachedProperties.AttachedProperties;
-using PersistedAttachedProperties.Persistance;
+using PersistedAttachedProperties;
+using PersistedAttachedPropertiesConcrete.Persistance;
 using Ploeh.AutoFixture;
 
 namespace TypedConfig.Tests
@@ -13,7 +13,7 @@ namespace TypedConfig.Tests
     {
         private ConfigGeneratorDummy _existingConfig;
 
-        private class ConfigGeneratorDummy : IExampleTypedConfig
+        private class ConfigGeneratorDummy : IExternalConfig_For_VK
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
@@ -39,11 +39,11 @@ namespace TypedConfig.Tests
             using (var context = new PropertyContext())
             {
                 foreach (
-                    var prop in typeof (IExampleTypedConfig).GetProperties(BindingFlags.Instance | BindingFlags.Public))
+                    var prop in typeof (IExternalConfig_For_VK).GetProperties(BindingFlags.Instance | BindingFlags.Public))
                 {
                     var p = context.DomainEntityAttachedProperties.Add(new AttachedProperty
                     {
-                        EntityType = typeof (IExampleTypedConfig).FullName,
+                        EntityType = typeof (IExternalConfig_For_VK).FullName,
                         Name = prop.Name,
                         Type = prop.PropertyType.FullName
                     });

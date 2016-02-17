@@ -1,4 +1,4 @@
-namespace PersistedAttachedProperties.AttachedProperties
+namespace PersistedAttachedPropertiesConcrete
 {
     public class DomainEntity
     {

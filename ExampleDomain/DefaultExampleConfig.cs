@@ -2,7 +2,7 @@ using System.Net.Mail;
 
 namespace Domain
 {
-    public class DefaultExampleConfig : IExampleTypedConfig
+    public class DefaultExampleConfig : IExternalConfig_For_VK
     {
         public string FirstName
         {

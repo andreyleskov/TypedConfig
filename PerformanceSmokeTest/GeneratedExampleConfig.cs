@@ -4,7 +4,7 @@ using Domain;
 
 namespace PerformanceSmokeTest
 {
-    public class GeneratedExampleConfig : IExampleTypedConfig
+    public class GeneratedExampleConfig : IExternalConfig_For_VK
     {
         private readonly Func<string, string> _configProvider;
 

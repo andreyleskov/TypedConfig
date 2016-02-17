@@ -1,7 +1,8 @@
 using System;
 using System.Data.Entity;
+using PersistedAttachedProperties;
 
-namespace PersistedAttachedProperties.AttachedProperties
+namespace PersistedConfig.Sql.Persistance
 {
     public interface IAttachedPropertyContext<T> : IDisposable
     {

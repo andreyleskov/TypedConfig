@@ -58,16 +58,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttachedProperties\AttachedProperty.cs" />
-    <Compile Include="AttachedProperties\AttachedPropertyValue.cs" />
-    <Compile Include="AttachedProperties\AttachedSettingsFactory.cs" />
-    <Compile Include="AttachedProperties\DbPersistedPropertyValueProvider.cs" />
-    <Compile Include="AttachedProperties\DomainEntity.cs" />
-    <Compile Include="AttachedProperties\IAttachedPropertyContext.cs" />
-    <Compile Include="Persistance\Constants.cs" />
-    <Compile Include="Persistance\PropertyConfiguration.cs" />
-    <Compile Include="Persistance\PropertyValuesConfiguration.cs" />
+    <Compile Include="AttachedProperty.cs" />
+    <Compile Include="AttachedPropertyValue.cs" />
+    <Compile Include="IAttachedPropertiesPersistance.cs" />
+    <Compile Include="IAttachedPropertiesReader.cs" />
+    <Compile Include="IAttachedPropertiesUnitOfWork.cs" />
+    <Compile Include="ITypeSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AttachedConfigRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

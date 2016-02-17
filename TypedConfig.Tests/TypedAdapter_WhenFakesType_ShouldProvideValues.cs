@@ -49,13 +49,6 @@ namespace TypedConfig.Tests
             Assert.AreEqual(_testValues.DecValue, _fakedClass.DecValue);
         }
 
-        //[Test]
-        //public void ObjValue_Should_be_provided()
-        //{
-        //    var objValue = _fakedClass.ObjValue;
-        //    Assert.AreEqual(_testValues.ObjValue, objValue);
-        //}
-
         [Test]
         public void MailValue_Should_be_provided()
         {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersistedAttachedProperties.Persistance
+﻿namespace PersistedConfig.Sql.Persistance
 {
     internal class Constants
     {
@@ -21,5 +15,7 @@ namespace PersistedAttachedProperties.Persistance
                 public const int ValueMaxLength = 1024;
             }
         }
+
+
     }
 }

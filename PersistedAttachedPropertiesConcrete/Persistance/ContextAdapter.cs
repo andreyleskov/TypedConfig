@@ -1,7 +1,8 @@
 using System.Data.Entity;
-using PersistedAttachedProperties.AttachedProperties;
+using PersistedAttachedProperties;
+using PersistedConfig.Sql.Persistance;
 
-namespace PersistedAttachedProperties.Persistance
+namespace PersistedAttachedPropertiesConcrete.Persistance
 {
     public class ContextAdapter : IAttachedPropertyContext<int>
     {

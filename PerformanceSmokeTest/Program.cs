@@ -27,7 +27,7 @@ namespace PerformanceSmokeTest
             {
                 new DefaultExampleConfig(), 
                 new GeneratedExampleConfig(settingGetter),
-                TypedConfig.Create<IExampleTypedConfig>(settingGetter, new KnownTypeDeserializer())
+                TypedConfig.Create<IExternalConfig_For_VK>(settingGetter, new KnownTypeDeserializer())
             };
 
             foreach (var setting in settings)
@@ -45,7 +45,7 @@ namespace PerformanceSmokeTest
             Console.ReadKey();
         }
 
-        private static TimeSpan MeasureAccessTime(IExampleTypedConfig config, int count)
+        private static TimeSpan MeasureAccessTime(IExternalConfig_For_VK config, int count)
         {
             var watch = new Stopwatch();
             watch.Start();

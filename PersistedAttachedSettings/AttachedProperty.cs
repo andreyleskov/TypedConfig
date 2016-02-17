@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace PersistedAttachedProperties.AttachedProperties
+namespace PersistedAttachedProperties
 {
     public class AttachedProperty
     {
