@@ -7,8 +7,8 @@
     <ProjectGuid>{03EC6187-8A53-4225-9F63-A5A7C94D12E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersistedConfig.Sql</RootNamespace>
-    <AssemblyName>PersistedConfig.Sql</AssemblyName>
+    <RootNamespace>AttachedConfig.Sql</RootNamespace>
+    <AssemblyName>AttachedConfig.Sql</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,9 +60,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PersistedAttachedSettings\EntityAttachedConfig.csproj">
+    <ProjectReference Include="..\PersistedAttachedSettings\AttachedConfig.csproj">
       <Project>{ef78303c-10fa-46d7-bdfb-77cb2677dc28}</Project>
-      <Name>EntityAttachedConfig</Name>
+      <Name>AttachedConfig</Name>
     </ProjectReference>
     <ProjectReference Include="..\TypedConfig\TypedConfig.csproj">
       <Project>{51ea528a-997a-48a6-939c-cef68aaf792f}</Project>
@@ -72,6 +72,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PropertyPersistance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

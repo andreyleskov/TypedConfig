@@ -7,8 +7,8 @@
     <ProjectGuid>{EF78303C-10FA-46D7-BDFB-77CB2677DC28}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersistedAttachedProperties</RootNamespace>
-    <AssemblyName>PersistedAttachedProperties</AssemblyName>
+    <RootNamespace>AttachedConfig</RootNamespace>
+    <AssemblyName>AttachedConfig</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

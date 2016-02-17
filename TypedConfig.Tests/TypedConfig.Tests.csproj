@@ -147,13 +147,13 @@
       <Project>{6afc0548-671b-4b7c-9120-e3eb8e84e563}</Project>
       <Name>PersistedAttachedPropertiesConcrete</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistedAttachedSettings\EntityAttachedConfig.csproj">
+    <ProjectReference Include="..\PersistedAttachedSettings\AttachedConfig.csproj">
       <Project>{EF78303C-10FA-46D7-BDFB-77CB2677DC28}</Project>
-      <Name>EntityAttachedConfig</Name>
+      <Name>AttachedConfig</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistedConfig.Sql\EntityAttachedConfig.Sql.csproj">
+    <ProjectReference Include="..\PersistedConfig.Sql\AttachedConfig.Sql.csproj">
       <Project>{03ec6187-8a53-4225-9f63-a5a7c94d12e2}</Project>
-      <Name>EntityAttachedConfig.Sql</Name>
+      <Name>AttachedConfig.Sql</Name>
     </ProjectReference>
     <ProjectReference Include="..\TypedConfig\TypedConfig.csproj">
       <Project>{51EA528A-997A-48A6-939C-CEF68AAF792F}</Project>

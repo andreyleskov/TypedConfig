@@ -64,13 +64,13 @@
       <Project>{e80b538f-8f4f-455e-a986-7d731c9e0d2d}</Project>
       <Name>Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistedAttachedSettings\EntityAttachedConfig.csproj">
+    <ProjectReference Include="..\PersistedAttachedSettings\AttachedConfig.csproj">
       <Project>{ef78303c-10fa-46d7-bdfb-77cb2677dc28}</Project>
-      <Name>EntityAttachedConfig</Name>
+      <Name>AttachedConfig</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistedConfig.Sql\EntityAttachedConfig.Sql.csproj">
+    <ProjectReference Include="..\PersistedConfig.Sql\AttachedConfig.Sql.csproj">
       <Project>{03ec6187-8a53-4225-9f63-a5a7c94d12e2}</Project>
-      <Name>EntityAttachedConfig.Sql</Name>
+      <Name>AttachedConfig.Sql</Name>
     </ProjectReference>
     <ProjectReference Include="..\TypedConfig\TypedConfig.csproj">
       <Project>{51ea528a-997a-48a6-939c-cef68aaf792f}</Project>

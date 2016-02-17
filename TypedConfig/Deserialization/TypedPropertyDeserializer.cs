@@ -58,5 +58,10 @@ namespace TypedConfig.Deserialization
                 throw new ValueDeserializationException(propertyName, settingSerializedValue, propertyType, ex);
             }
         }
+
+        public void SetValue(string propertyName, object value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -59,6 +59,11 @@ namespace PersistedConfig.Sql
             return _loadedProperties[property.Id];
         }
 
+        public void SetValue(string propertyName, object value)
+        {
+            ((IPropertyValueProvider) _typedPropertyDeserializer).SetValue(propertyName, value);
+        }
+
         private void LoadValues()
         {
             using (var context = _contextCreator.Invoke())

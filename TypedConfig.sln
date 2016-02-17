@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypedConfig", "TypedConfig\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypedConfig.Tests", "TypedConfig.Tests\TypedConfig.Tests.csproj", "{39D40B8E-8A06-4514-B49F-8CED80D64F36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityAttachedConfig", "PersistedAttachedSettings\EntityAttachedConfig.csproj", "{EF78303C-10FA-46D7-BDFB-77CB2677DC28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachedConfig", "PersistedAttachedSettings\AttachedConfig.csproj", "{EF78303C-10FA-46D7-BDFB-77CB2677DC28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "ExampleDomain\Domain.csproj", "{E80B538F-8F4F-455E-A986-7D731C9E0D2D}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceSmokeTest", "Per
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistedAttachedPropertiesConcrete", "PersistedAttachedPropertiesConcrete\PersistedAttachedPropertiesConcrete.csproj", "{6AFC0548-671B-4B7C-9120-E3EB8E84E563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityAttachedConfig.Sql", "PersistedConfig.Sql\EntityAttachedConfig.Sql.csproj", "{03EC6187-8A53-4225-9F63-A5A7C94D12E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachedConfig.Sql", "PersistedConfig.Sql\AttachedConfig.Sql.csproj", "{03EC6187-8A53-4225-9F63-A5A7C94D12E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
