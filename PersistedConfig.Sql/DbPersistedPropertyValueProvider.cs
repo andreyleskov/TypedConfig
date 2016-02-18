@@ -41,7 +41,7 @@ namespace PersistedConfig.Sql
                 );
         }
 
-        public object GetValue(string propertyName)
+        public IFlatProperty GetValue(string propertyName)
         {
             PersistedPropertyInfo property;
             if (!_knownProperties.TryGetValue(propertyName, out property))
@@ -56,12 +56,12 @@ namespace PersistedConfig.Sql
                 LoadValues();
             }
 
-            return _loadedProperties[property.Id];
+            return new FlatProperty(propertyName){Value =  _loadedProperties[property.Id]};
         }
 
         public void SetValue(string propertyName, object value)
         {
-            ((IPropertyValueProvider) _typedPropertyDeserializer).SetValue(propertyName, value);
+          //  ((IPropertyValueProvider) _typedPropertyDeserializer).SetValue(propertyName, value);
         }
 
         private void LoadValues()
@@ -70,7 +70,7 @@ namespace PersistedConfig.Sql
             {
                 InitSerializedValues(context);
                 _loadedProperties = _loadedSerializedProperties.ToDictionary(p => _knownProperties[p.Key].Id
-                    , p => _typedPropertyDeserializer.GetValue(p.Key));
+                                                                           , p => _typedPropertyDeserializer.GetValue(p.Key).Value);
             }
         }
 

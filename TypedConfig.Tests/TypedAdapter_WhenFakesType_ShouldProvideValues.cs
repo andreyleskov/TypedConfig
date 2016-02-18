@@ -32,9 +32,9 @@ namespace TypedConfig.Tests
         protected override void Given()
         {
             _testValues = (new Fixture()).Create<TestTypedClass>();
-            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("StringValue")).Returns(_testValues.StringValue);
-            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("DecValue")).Returns(_testValues.DecValue);
-            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("MailValue")).Returns(_testValues.MailValue);
+            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("StringValue")).Returns(new FlatProperty("StringValue"){Value = _testValues.StringValue});
+            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("DecValue")).Returns(new FlatProperty("StringValue"){Value =_testValues.DecValue});
+            GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("MailValue")).Returns(new FlatProperty("StringValue"){Value =_testValues.MailValue});
             // GetMockFor<IPropertyValueProvider>().Setup(p => p.GetValue("ObjValue")).Returns(_testValues.ObjValue);
         }
 

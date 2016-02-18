@@ -24,7 +24,7 @@ namespace TypedConfig.Deserialization
             _serializedPropertyProvider = serializedPropertyProvider;
         }
 
-        public object GetValue(string propertyName)
+        public IFlatProperty GetValue(string propertyName)
         {
             string settingSerializedValue;
 
@@ -51,7 +51,7 @@ namespace TypedConfig.Deserialization
 
             try
             {
-                return _typeDeserializer.Deserialize(propertyType, settingSerializedValue);
+                return new FlatProperty(propertyName){Value = _typeDeserializer.Deserialize(propertyType, settingSerializedValue)};
             }
             catch (Exception ex)
             {
