@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Domain;
+using NUnit.Framework;
 
 namespace PerformanceSmokeTest
 {
-    internal class Program
+    [TestFixture]
+    public class PerformanceTest
     {
         private static readonly IDictionary<string, string> ConfigValuesFromAnySource =
             new Dictionary<string, string>
@@ -20,7 +22,8 @@ namespace PerformanceSmokeTest
                 {"Subscription", "Small"}
             };
 
-        private static void Main(string[] args)
+        [Test]
+        public void Main(string[] args)
         {
             Func<string, string> settingGetter = s => ConfigValuesFromAnySource[s];
             var settings = new[]
@@ -41,8 +44,6 @@ namespace PerformanceSmokeTest
                 Console.WriteLine("Finished work in {0} milliseconds", work);
                 Console.WriteLine();
             }
-
-            Console.ReadKey();
         }
 
         private static TimeSpan MeasureAccessTime(IExampleTypedConfig config, int count)

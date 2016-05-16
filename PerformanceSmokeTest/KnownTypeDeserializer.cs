@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Mail;
 using Domain;
 using TypedConfig.Deserialization;
@@ -15,7 +16,8 @@ namespace PerformanceSmokeTest
                 {typeof (decimal), s => GetDecimal(s)},
                 {typeof (string), s => s},
                 {typeof (SubscriptionType), s => GetSubscriptionType(s)},
-                {typeof (MailAddress), GetMailAddress}
+                {typeof (MailAddress), GetMailAddress},
+                {typeof (double), s => GetDouble(s)},
             };
         }
 
@@ -33,7 +35,12 @@ namespace PerformanceSmokeTest
 
         public static decimal GetDecimal(string value)
         {
-            return decimal.Parse(value);
+            return decimal.Parse(value, CultureInfo.InvariantCulture);
+        }
+
+        public static double GetDouble(string value)
+        {
+            return double.Parse(value, CultureInfo.InvariantCulture);
         }
 
         public static MailAddress GetMailAddress(string value)

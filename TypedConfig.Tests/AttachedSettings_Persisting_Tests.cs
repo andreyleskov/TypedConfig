@@ -17,9 +17,9 @@ namespace TypedConfig.Tests
         {
             using (var context = new PropertyContext())
             {
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE AttachedProperties");
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE AttachedPropertyValuesInt");
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE AttachedPropertyValuesLong");
+                context.Database.ExecuteSqlCommand($"TRUNCATE TABLE {nameof(PropertyContext.AttachedProperties)}");
+                context.Database.ExecuteSqlCommand($"TRUNCATE TABLE {nameof(PropertyContext.AttachedPropertyValueInt)}");
+                context.Database.ExecuteSqlCommand($"TRUNCATE TABLE {nameof(PropertyContext.AttachedPropertyValueLong)}");
             }
 
             EntityId = (new Fixture()).Create<int>();

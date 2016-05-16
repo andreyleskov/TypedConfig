@@ -41,7 +41,7 @@ namespace TypedConfig.Tests
                 foreach (
                     var prop in typeof (IExampleTypedConfig).GetProperties(BindingFlags.Instance | BindingFlags.Public))
                 {
-                    var p = context.DomainEntityAttachedProperties.Add(new AttachedProperty
+                    var p = context.AttachedProperties.Add(new AttachedProperty
                     {
                         EntityType = typeof (IExampleTypedConfig).FullName,
                         Name = prop.Name,
@@ -50,7 +50,7 @@ namespace TypedConfig.Tests
 
                     context.SaveChanges();
 
-                    context.DomainEntityAttachedPropertyValuesLong.Add(new AttachedPropertyValueLong
+                    context.AttachedPropertyValueLong.Add(new AttachedPropertyValueLong
                     {
                         EntityId = EntityId,
                         PropertyId = p.Id,

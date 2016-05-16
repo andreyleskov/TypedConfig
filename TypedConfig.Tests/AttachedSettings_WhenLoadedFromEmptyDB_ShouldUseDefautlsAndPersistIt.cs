@@ -16,7 +16,7 @@ namespace TypedConfig.Tests
             using (var context = new PropertyContext())
             {
                 var firstName = Config.FirstName;
-                Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
+                Assert.NotNull(context.AttachedProperties.Single(p =>
                     p.Type == typeof (string).FullName &&
                     p.EntityType == typeof (IExampleTypedConfig).FullName &&
                     p.Name == "FirstName"
@@ -30,7 +30,7 @@ namespace TypedConfig.Tests
             using (var context = new PropertyContext())
             {
                 var mail = Config.CustomerMail;
-                Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
+                Assert.NotNull(context.AttachedProperties.Single(p =>
                     p.Type == typeof (MailAddress).FullName &&
                     p.EntityType == typeof (IExampleTypedConfig).FullName &&
                     p.Name == "CustomerMail"
@@ -44,7 +44,7 @@ namespace TypedConfig.Tests
             using (var context = new PropertyContext())
             {
                 var firstName = Config.FirstName;
-                Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
+                Assert.NotNull(context.AttachedProperties.Single(p =>
                     p.Type == typeof (string).FullName &&
                     p.EntityType == typeof (IExampleTypedConfig).FullName &&
                     p.Name == "FirstName"
@@ -58,7 +58,7 @@ namespace TypedConfig.Tests
             using (var context = new PropertyContext())
             {
                 var mail = Config.CustomerMail;
-                Assert.NotNull(context.DomainEntityAttachedProperties.Single(p =>
+                Assert.NotNull(context.AttachedProperties.Single(p =>
                     p.Type == typeof (MailAddress).FullName &&
                     p.EntityType == typeof (IExampleTypedConfig).FullName &&
                     p.Name == "CustomerMail"

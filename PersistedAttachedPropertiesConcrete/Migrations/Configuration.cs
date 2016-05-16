@@ -1,19 +1,21 @@
-using System.Data.Entity.Migrations;
-using PersistedAttachedProperties.Persistance;
-
-namespace PersistedAttachedProperties.Migrations
+namespace PersistedAttachedPropertiesConcrete.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<PropertyContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<PersistedAttachedProperties.Persistance.PropertyContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(PropertyContext context)
+        protected override void Seed(PersistedAttachedProperties.Persistance.PropertyContext context)
         {
             //  This method will be called after migrating to the latest version.
+
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
@@ -26,5 +28,4 @@ namespace PersistedAttachedProperties.Migrations
             //
         }
     }
-
 }

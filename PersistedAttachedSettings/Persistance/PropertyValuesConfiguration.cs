@@ -10,36 +10,30 @@ namespace PersistedAttachedProperties.Persistance
     public class AttachedPropertyValueInt : AttachedPropertyValue<int>
     {
     }
-    /*public abstract class PropertyValuesConfigurationBase<T> : EntityTypeConfiguration<AttachedPropertyValue<T>>
-        where T : struct
-    {
-        protected PropertyValuesConfigurationBase()
-        {
-            HasKey(v => new { v.PropertyId, v.EntityId });
-            Property(t => t.PropertyId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(t => t.EntityId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(t => t.Value).HasMaxLength(Constants.Tables.Values.ValueMaxLength).IsVariableLength().IsOptional();
-        }
-    }*/
 
-    public class PropertyValuesConfigurationInt : EntityTypeConfiguration<AttachedPropertyValueInt>
+
+    public class PropertyValueConfigurationInt : EntityTypeConfiguration<AttachedPropertyValueInt>
     {
-        public string TableName { get { return "AttachedPropertyValuesInt"; } }
-        public PropertyValuesConfigurationInt()
+        public string TableName => nameof(AttachedPropertyValueInt);
+
+        public PropertyValueConfigurationInt()
         {
-            HasKey(v => new {v.PropertyId, v.EntityId});
+            ToTable(TableName);
+            HasKey(v => new { v.PropertyId, v.EntityId });
             Property(t => t.PropertyId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(t => t.EntityId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(t => t.Value).HasMaxLength(Constants.Tables.Values.ValueMaxLength).IsVariableLength().IsOptional();
         }
     }
 
-    public class PropertyValuesConfigurationLong :EntityTypeConfiguration<AttachedPropertyValueLong>
-    
+    public class PropertyValueConfigurationLong : EntityTypeConfiguration<AttachedPropertyValueLong>
+
     {
-        public string TableName { get { return "AttachedPropertyValuesBigInt"; } }
-        public PropertyValuesConfigurationLong()
+        public string TableName => nameof(AttachedPropertyValueLong);
+
+        public PropertyValueConfigurationLong()
         {
+            ToTable(TableName);
             HasKey(v => new { v.PropertyId, v.EntityId });
             Property(t => t.PropertyId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(t => t.EntityId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
